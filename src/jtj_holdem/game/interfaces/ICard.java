@@ -1,11 +1,11 @@
 package jtj_holdem.game.interfaces;
 
 import jtj_holdem.game.enums.ECardNumber;
-import jtj_holdem.game.enums.ESuit;
+import jtj_holdem.game.enums.ECardSuit;
 
 public interface ICard {
 
-	public ESuit getSuit();
+	public ECardSuit getSuit();
 	
-	public ECardNumber getCardNumber();
+	public ECardNumber getNumber();
 }
