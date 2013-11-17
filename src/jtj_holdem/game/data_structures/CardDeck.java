@@ -79,6 +79,7 @@ public class CardDeck {
 
 	public void printDeck(){
 		
+		System.out.println("Number of Cards in Deck: " + mDeck.size());
 		for (ICard card : mDeck){
 			System.out.println(card);
 		}

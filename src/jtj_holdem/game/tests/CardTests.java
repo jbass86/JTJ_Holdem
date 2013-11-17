@@ -6,6 +6,9 @@ public class CardTests {
 
 	public static void main(String[] args) {
 		
+		/**
+		 * Need to change this to use JUnit.
+		 */
 		System.out.println("Creating Deck...");
 		
 		CardDeck deck = new CardDeck();
