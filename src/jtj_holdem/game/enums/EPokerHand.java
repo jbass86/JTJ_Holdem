@@ -10,5 +10,6 @@ public enum EPokerHand {
 	THREE_OF_A_KIND,
 	TWO_PAIR,
 	ONE_PAIR,
-	HIGH_CARD
+	HIGH_CARD,
+	NO_HAND
 }

@@ -51,6 +51,18 @@ public class CardDeck {
 			return null;
 		}
 	}
+	
+//	public List<ICard> dealCard(final int pNumber){
+//		
+//		if (mDeck.size() >= pNumber){
+//			for (int i = 0; i < pNumber; i++){
+//				
+//			}
+//			return mDeck.remove(0);
+//		}else{
+//			return null;
+//		}
+//	}
 
 	@Override
 	public int hashCode() {

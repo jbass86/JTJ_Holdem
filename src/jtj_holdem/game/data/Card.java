@@ -55,4 +55,9 @@ public class Card implements ICard{
 	public String toString() {
 		return "Card: " + mNumber + " of " + mSuit;
 	}
+
+	@Override
+	public int compareTo(ICard pCompare) {
+		return Integer.compare(mNumber.getNumber(), pCompare.getNumber().getNumber());
+	}
 }
