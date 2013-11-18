@@ -1,5 +1,6 @@
 package jtj_holdem.game.data_structures;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -52,18 +53,23 @@ public class CardDeck {
 		}
 	}
 	
-//	public List<ICard> dealCard(final int pNumber){
-//		
-//		if (mDeck.size() >= pNumber){
-//			for (int i = 0; i < pNumber; i++){
-//				
-//			}
-//			return mDeck.remove(0);
-//		}else{
-//			return null;
-//		}
-//	}
+	public List<ICard> dealCard(final int pNumber){
+		
+		List <ICard> list = new ArrayList<ICard>();
+		if (mDeck.size() >= pNumber){
+			for (int i = 0; i < pNumber; i++){
+				list.add(dealCard());
+			}
+			return list;
+		}else{
+			return null;
+		}
+	}
 
+	public int getDeckSize(){
+		return mDeck.size();
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
