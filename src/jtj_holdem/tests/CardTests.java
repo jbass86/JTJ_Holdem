@@ -45,48 +45,100 @@ public class CardTests {
 			aHand.add(card);
 		}
 		
-		System.out.println("check for flush");
-		PokerHand hand = PokerHandUtility.determineFlush(aHand);
-		System.out.println("hand returned");
+		System.out.println("Checking my hand...");
+		PokerHand hand = PokerHandUtility.determineBestHand(aHand);
 		System.out.println(hand.getHand());
 		System.out.println(hand.getCards());
+		System.out.println(hand.getKickers());
 		
-		System.out.println("check for straight");
-		hand = PokerHandUtility.determineStraight(aHand);
-		System.out.println("hand returned");
-		System.out.println(hand.getHand());
-		System.out.println(hand.getCards());
-		
-		aHand = new ArrayList<ICard>();
-		aHand.add(new Card(ECardNumber.FOUR, ECardSuit.CLUBS));
-		aHand.add(new Card(ECardNumber.SIX, ECardSuit.CLUBS));
-		aHand.add(new Card(ECardNumber.FIVE, ECardSuit.CLUBS));
-		aHand.add(new Card(ECardNumber.JACK, ECardSuit.CLUBS));
-		aHand.add(new Card(ECardNumber.ACE, ECardSuit.CLUBS));
-		aHand.add(new Card(ECardNumber.THREE, ECardSuit.CLUBS));
-		aHand.add(new Card(ECardNumber.SEVEN, ECardSuit.CLUBS));
-		
-		System.out.println("should be a straight");
-		hand = PokerHandUtility.determineStraight(aHand);
-		System.out.println("hand returned");
-		System.out.println(hand.getHand());
-		System.out.println(hand.getCards());
-		
-		aHand = new ArrayList<ICard>();
-		aHand.add(new Card(ECardNumber.FOUR, ECardSuit.CLUBS));
-		aHand.add(new Card(ECardNumber.JACK, ECardSuit.CLUBS));
-		aHand.add(new Card(ECardNumber.FIVE, ECardSuit.CLUBS));
-		aHand.add(new Card(ECardNumber.TWO, ECardSuit.CLUBS));
-		aHand.add(new Card(ECardNumber.ACE, ECardSuit.CLUBS));
-		aHand.add(new Card(ECardNumber.THREE, ECardSuit.CLUBS));
-		aHand.add(new Card(ECardNumber.SEVEN, ECardSuit.CLUBS));
-		
-		System.out.println("should be a straight ace low");
-		hand = PokerHandUtility.determineStraight(aHand);
-		System.out.println("hand returned");
-		System.out.println(hand.getHand());
-		System.out.println(hand.getCards());
-		
+//		System.out.println("check for flush");
+//		PokerHand hand = PokerHandUtility.determineFlush(aHand);
+//		System.out.println("hand returned");
+//		System.out.println(hand.getHand());
+//		System.out.println(hand.getCards());
+//		
+//		System.out.println("check for straight");
+//		hand = PokerHandUtility.determineStraight(aHand);
+//		System.out.println("hand returned");
+//		System.out.println(hand.getHand());
+//		System.out.println(hand.getCards());
+//		
+//		aHand = new ArrayList<ICard>();
+//		aHand.add(new Card(ECardNumber.FOUR, ECardSuit.CLUBS));
+//		aHand.add(new Card(ECardNumber.SIX, ECardSuit.CLUBS));
+//		aHand.add(new Card(ECardNumber.FIVE, ECardSuit.CLUBS));
+//		aHand.add(new Card(ECardNumber.JACK, ECardSuit.CLUBS));
+//		aHand.add(new Card(ECardNumber.ACE, ECardSuit.CLUBS));
+//		aHand.add(new Card(ECardNumber.THREE, ECardSuit.CLUBS));
+//		aHand.add(new Card(ECardNumber.SEVEN, ECardSuit.CLUBS));
+//		
+//		System.out.println("should be a straight");
+//		hand = PokerHandUtility.determineStraight(aHand);
+//		System.out.println("hand returned");
+//		System.out.println(hand.getHand());
+//		System.out.println(hand.getCards());
+//		
+//		aHand = new ArrayList<ICard>();
+//		aHand.add(new Card(ECardNumber.FOUR, ECardSuit.CLUBS));
+//		aHand.add(new Card(ECardNumber.JACK, ECardSuit.CLUBS));
+//		aHand.add(new Card(ECardNumber.FIVE, ECardSuit.CLUBS));
+//		aHand.add(new Card(ECardNumber.TWO, ECardSuit.CLUBS));
+//		aHand.add(new Card(ECardNumber.ACE, ECardSuit.CLUBS));
+//		aHand.add(new Card(ECardNumber.THREE, ECardSuit.CLUBS));
+//		aHand.add(new Card(ECardNumber.SEVEN, ECardSuit.CLUBS));
+//		
+//		System.out.println("should be a straight ace low");
+//		hand = PokerHandUtility.determineStraight(aHand);
+//		System.out.println("hand returned");
+//		System.out.println(hand.getHand());
+//		System.out.println(hand.getCards());
+//		
+//		
+//		aHand = new ArrayList<ICard>();
+//		aHand.add(new Card(ECardNumber.FOUR, ECardSuit.CLUBS));
+//		aHand.add(new Card(ECardNumber.ACE, ECardSuit.CLUBS));
+//		aHand.add(new Card(ECardNumber.FIVE, ECardSuit.CLUBS));
+//		aHand.add(new Card(ECardNumber.ACE, ECardSuit.CLUBS));
+//		aHand.add(new Card(ECardNumber.ACE, ECardSuit.CLUBS));
+//		aHand.add(new Card(ECardNumber.THREE, ECardSuit.CLUBS));
+//		aHand.add(new Card(ECardNumber.ACE, ECardSuit.CLUBS));
+//		
+//		System.out.println("should be a four of a kind");
+//		hand = PokerHandUtility.determineFourOfAKind(aHand);
+//		System.out.println("hand returned");
+//		System.out.println(hand.getHand());
+//		System.out.println(hand.getCards());
+//		System.out.println(hand.getKickers());
+//		
+//		aHand = new ArrayList<ICard>();
+//		aHand.add(new Card(ECardNumber.FOUR, ECardSuit.CLUBS));
+//		aHand.add(new Card(ECardNumber.JACK, ECardSuit.CLUBS));
+//		aHand.add(new Card(ECardNumber.FIVE, ECardSuit.CLUBS));
+//		aHand.add(new Card(ECardNumber.TWO, ECardSuit.CLUBS));
+//		aHand.add(new Card(ECardNumber.ACE, ECardSuit.CLUBS));
+//		aHand.add(new Card(ECardNumber.THREE, ECardSuit.CLUBS));
+//		aHand.add(new Card(ECardNumber.SEVEN, ECardSuit.CLUBS));
+//		
+//		System.out.println("should be a straight flush ace low");
+//		hand = PokerHandUtility.determineStraightFlush(aHand);
+//		System.out.println("hand returned");
+//		System.out.println(hand.getHand());
+//		System.out.println(hand.getCards());
+//		
+//		aHand = new ArrayList<ICard>();
+//		aHand.add(new Card(ECardNumber.TWO, ECardSuit.CLUBS));
+//		aHand.add(new Card(ECardNumber.ACE, ECardSuit.CLUBS));
+//		aHand.add(new Card(ECardNumber.FIVE, ECardSuit.CLUBS));
+//		aHand.add(new Card(ECardNumber.TWO, ECardSuit.CLUBS));
+//		aHand.add(new Card(ECardNumber.ACE, ECardSuit.CLUBS));
+//		aHand.add(new Card(ECardNumber.THREE, ECardSuit.CLUBS));
+//		aHand.add(new Card(ECardNumber.ACE, ECardSuit.CLUBS));
+//		
+//		System.out.println("should be a full house");
+//		hand = PokerHandUtility.determineFullHouse(aHand);
+//		System.out.println("hand returned");
+//		System.out.println(hand.getHand());
+//		System.out.println(hand.getCards());
 	}
 
 }

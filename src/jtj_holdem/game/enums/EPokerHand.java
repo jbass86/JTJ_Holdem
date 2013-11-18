@@ -11,5 +11,5 @@ public enum EPokerHand {
 	TWO_PAIR,
 	ONE_PAIR,
 	HIGH_CARD,
-	NO_HAND
+	NO_HAND;
 }

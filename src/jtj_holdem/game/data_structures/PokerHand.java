@@ -8,15 +8,19 @@ import jtj_holdem.game.interfaces.ICard;
 
 public class PokerHand {
 
-	public static final PokerHand INVALID = new PokerHand(EPokerHand.NO_HAND, Collections.<ICard> emptyList());
+	public static final PokerHand INVALID = new PokerHand(EPokerHand.NO_HAND, Collections.<ICard> emptyList(),
+			Collections.<ICard> emptyList());
 	
 	private final EPokerHand mHand;
 	
 	private final List<ICard> mCards;
 	
-	public PokerHand(final EPokerHand pHand, final List<ICard> pCards){
+	private final List<ICard> mKickers;
+	
+	public PokerHand(final EPokerHand pHand, final List<ICard> pCards, final List<ICard> pKickers){
 		mHand = pHand;
 		mCards = pCards;
+		mKickers = pKickers;
 	}
 
 	public EPokerHand getHand() {
@@ -25,6 +29,10 @@ public class PokerHand {
 
 	public List<ICard> getCards() {
 		return mCards;
+	}
+	
+	public List<ICard> getKickers() {
+		return mKickers;
 	}
 
 	@Override
@@ -56,6 +64,6 @@ public class PokerHand {
 	}
 	
 	public boolean isValid(){
-		return this.equals(INVALID);
+		return !this.equals(INVALID);
 	}
 }
