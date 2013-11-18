@@ -1,6 +1,6 @@
 package jtj_holdem.game.enums;
 
-public enum EPokerHand {
+public enum EPokerHand{
 
 	STRAIGHT_FLUSH,
 	FOUR_OF_A_KIND,
@@ -12,4 +12,5 @@ public enum EPokerHand {
 	ONE_PAIR,
 	HIGH_CARD,
 	NO_HAND;
+	
 }

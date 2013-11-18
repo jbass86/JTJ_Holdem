@@ -41,8 +41,14 @@ public class PokerHandUtility {
 		if (!hand.isValid()){
 			List <ICard> cards = new ArrayList<ICard>(pHand);
 			Collections.sort(cards);
+			List <ICard> kickers = new ArrayList<ICard>(pHand);
+			kickers.remove(cards.get(cards.size() - 1));
+			Collections.sort(kickers);
+			while (kickers.size() > 4){
+				kickers.remove(0);
+			}
 			hand = new PokerHand(EPokerHand.HIGH_CARD, Collections.singletonList(cards.get(cards.size() - 1)), 
-					Collections.<ICard>emptyList());
+					kickers);
 		}
 
 		return hand;
