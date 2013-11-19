@@ -11,6 +11,10 @@ public class GeneralTest {
 		ECardNumber a = ECardNumber.TWO;
 		ECardNumber b = ECardNumber.EIGHT;
 		System.out.println(a.compareTo(b));
+		
+		for(ECardNumber number : ECardNumber.values()){
+			System.out.println(number);
+		}
 	}
 
 }

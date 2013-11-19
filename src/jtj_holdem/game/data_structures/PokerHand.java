@@ -98,8 +98,7 @@ public class PokerHand implements Comparable<PokerHand>{
 			case THREE_OF_A_KIND:
 				return compareOfAKind(pO);
 			case TWO_PAIR:
-				//this should work since only the higher pair matters in two pair
-				return compareOfAKind(pO);
+				return compareTwoPair(pO);
 			case ONE_PAIR:
 				return compareOfAKind(pO);
 			case HIGH_CARD:
@@ -190,6 +189,55 @@ public class PokerHand implements Comparable<PokerHand>{
 			}
 		}
 		//the of a kind and all kickers were the same so these hands are equal...
+		return 0;
+	}
+	
+	/**
+	 * Compare two pair first high pair then if necessary low pair then finally if they are totally equal then compare
+	 * the kicker.
+	 * @param pO - the other hand
+	 * @return an integer between -1 and 1 based on whether this hand was less than equal to or greater than the other hand.
+	 */
+	private int compareTwoPair(final PokerHand pO){
+		
+		Map<ECardNumber, List<ICard>> numbers1 = PokerHandUtility.organizeByNumber(getCards());
+		Map<ECardNumber, List<ICard>> numbers2 = PokerHandUtility.organizeByNumber(pO.getCards());
+		
+		List<ICard> highpair1 = new ArrayList<ICard>();
+		List<ICard> lowpair1 = new ArrayList<ICard>();		
+		List<ICard> highpair2 = new ArrayList<ICard>();
+		List<ICard> lowpair2 = new ArrayList<ICard>();
+		
+		for (ECardNumber number : numbers1.keySet()){
+			if (numbers1.get(number).size() == 2){
+				if (lowpair1.isEmpty()){
+					lowpair1 = numbers1.get(number);
+				}else{
+					highpair1 = numbers1.get(number);
+				}
+			}
+		}
+		for (ECardNumber number : numbers2.keySet()){
+			if (numbers2.get(number).size() == 2){
+				if (lowpair2.isEmpty()){
+					lowpair2 = numbers2.get(number);
+				}else{
+					highpair2 = numbers2.get(number);
+				}
+			}
+		}
+		
+		if (highpair1.get(0).getNumber().compareTo(highpair2.get(0).getNumber()) != 0){
+			return highpair1.get(0).getNumber().compareTo(highpair2.get(0).getNumber());
+		}
+		if (lowpair1.get(0).getNumber().compareTo(lowpair2.get(0).getNumber()) != 0){
+			return lowpair1.get(0).getNumber().compareTo(lowpair1.get(0).getNumber());
+		}
+		if (getKickers().get(0).getNumber().compareTo(pO.getKickers().get(0).getNumber()) != 0){
+			//only one kicker in two pair
+			return getKickers().get(0).getNumber().compareTo(pO.getKickers().get(0).getNumber());
+		}
+		
 		return 0;
 	}
 	
