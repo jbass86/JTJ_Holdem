@@ -236,7 +236,7 @@ public class PokerHandUtility {
 		return hand;
 	}
 
-	private static Map<ECardNumber, List<ICard>> organizeByNumber(final List<ICard> pHand){
+	public static Map<ECardNumber, List<ICard>> organizeByNumber(final List<ICard> pHand){
 
 		Map<ECardNumber, List<ICard>> numbers = new HashMap<ECardNumber, List<ICard>>();
 		for (ECardNumber number : ECardNumber.values()){
