@@ -1,6 +1,7 @@
 package jtj_holdem.game.data_structures;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -37,11 +38,9 @@ public class CardDeck {
 		
 		Random rand = new Random(System.currentTimeMillis());
 		
-		for (int i = 0; i < 500; i++){
-			
-			int number = rand.nextInt(mDeck.size());
-			ICard card = mDeck.remove(number);
-			mDeck.add(card);
+		for (int i = 0; i < 5; i++){
+		
+			Collections.shuffle(mDeck);
 		}
 	}
 	
