@@ -1,4 +1,4 @@
-package jtj_holdem.tests;
+package jtj_holdem.tests.misc;
 
 import jtj_holdem.game.enums.ECardNumber;
 
