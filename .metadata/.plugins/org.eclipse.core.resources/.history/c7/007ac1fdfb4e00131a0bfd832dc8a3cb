@@ -1,0 +1,5 @@
+package jtj_holdem.game.data_structures;
+
+public class CardDeck {
+
+}

@@ -1,0 +1,14 @@
+package jtj_holdem.tests;
+
+public class GeneralTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.out.println("General compare test");
+		int a = 5;
+		int b = 71;
+		System.out.println(Integer.valueOf(a).compareTo(b));
+	}
+
+}

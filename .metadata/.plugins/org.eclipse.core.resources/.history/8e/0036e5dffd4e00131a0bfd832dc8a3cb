@@ -1,0 +1,39 @@
+package jtj_holdem.game.data_structures;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+
+import jtj_holdem.game.data.Card;
+import jtj_holdem.game.enums.ECardNumber;
+import jtj_holdem.game.enums.ECardSuit;
+import jtj_holdem.game.interfaces.ICard;
+
+public class CardDeck {
+
+	private final List <ICard> mDeck = new CopyOnWriteArrayList<ICard>();
+	
+	public CardDeck(){}
+	
+	public void populateDeck(final boolean pShuffle){
+		
+		mDeck.clear();
+		
+		for (ECardNumber number : ECardNumber.values()){
+			
+			for (ECardSuit suit : ECardSuit.values()){
+				Card aCard = new Card(number, suit);
+				mDeck.add(aCard);
+			}
+		}	
+		
+		if (pShuffle){
+			shuffleDeck();
+		}
+	}
+	
+	public void shuffleDeck(){
+		
+		
+	}
+}

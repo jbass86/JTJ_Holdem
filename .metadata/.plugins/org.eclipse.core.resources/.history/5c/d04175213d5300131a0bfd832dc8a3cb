@@ -1,0 +1,24 @@
+package jtj_holdem.tests;
+
+import jtj_holdem.game.data_structures.CardDeck;
+
+
+
+import org.junit.Assert;
+import org.junit.Test;
+
+public class BasicDeckTests {
+
+	@Test
+	public void deckCreationTest(){
+		
+		CardDeck deck = new CardDeck();
+		deck.populateDeck(false);
+	
+		Assert.assertEquals(deck.getDeckSize(), 52);
+		
+		deck.shuffleDeck();
+		Assert.assertEquals(deck.getDeckSize(), 52);
+	}
+	
+}

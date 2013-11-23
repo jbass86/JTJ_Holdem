@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+<typeInfo handle="=JTJ_Holdem/src&lt;jtj_holdem.game.interfaces{ICard.java[ICard" modifiers="513" timestamp="1385202119044"/>
+<typeInfo handle="=JTJ_Holdem/src&lt;jtj_holdem.game.utility{PokerHandUtility.java[PokerHandUtility" modifiers="1" timestamp="1385202119045"/>
+<typeInfo handle="=JTJ_Holdem/src&lt;jtj_holdem.game.data{Card.java[Card" modifiers="1" timestamp="1385202119040"/>
+<typeInfo handle="=JTJ_Holdem/src&lt;jtj_holdem.game.enums{EPokerHand.java[EPokerHand" modifiers="16385" timestamp="1385202119042"/>
+<typeInfo handle="=JTJ_Holdem/src&lt;jtj_holdem.game.enums{ECardNumber.java[ECardNumber" modifiers="16385" timestamp="1385202119042"/>
+<typeInfo handle="=JTJ_Holdem/src&lt;jtj_holdem.game.graphics2d.test{SlickTest.java[SlickTest" modifiers="1" timestamp="1385202119043"/>
+</typeInfoHistroy>
