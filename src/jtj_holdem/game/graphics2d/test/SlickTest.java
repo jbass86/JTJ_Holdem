@@ -38,8 +38,11 @@ public class SlickTest extends BasicGame
 	@Override
 	public void render(GameContainer gc, Graphics g) throws SlickException
 	{
+		Rectangle background = new Rectangle(0, 0, gc.getWidth(), gc.getHeight());
+		Image bgImage = new Image("res/images/backgrounds/red_poker_bg.jpg");
+		g.texture(background, bgImage, 1, 1, true);
+		
 		g.drawString("Howdy!", 10, 200);
-		g.setBackground(org.newdawn.slick.Color.green);
 		
 		Image newImage = new Image("res/images/cards/1.png");
 		g.rotate(240, 260, angle);
@@ -66,7 +69,7 @@ public class SlickTest extends BasicGame
 		{
 			AppGameContainer appgc;
 			appgc = new AppGameContainer(new SlickTest("Simple Slick Game"));
-			appgc.setDisplayMode(640, 480, false);
+			appgc.setDisplayMode(1280, 720, false);
 			appgc.start();
 		}
 		catch (SlickException ex)
