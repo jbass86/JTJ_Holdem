@@ -37,19 +37,19 @@ public class SlickTest extends BasicGame
 	public void render(GameContainer gc, Graphics g) throws SlickException
 	{
 		Rectangle background = new Rectangle(0, 0, gc.getWidth(), gc.getHeight());
-		Image bgImage = new Image("/resources/images/backgrounds/red_poker_bg.jpg");
+		Image bgImage = new Image("resources/images/backgrounds/red_poker_bg.jpg");
 		g.texture(background, bgImage, 1, 1, true);
 		
 		g.drawString("Howdy!", 10, 200);
 		
-		Image newImage = new Image("/resources/images/cards/1.png");
+		Image newImage = new Image("resources/images/cards/1.png");
 		g.rotate(240, 260, angle);
 		Rectangle rect = new Rectangle(200, 200, 80, 120);
 		g.texture(rect, newImage, 1, 1, true);
 		g.flush();
 		
 		g.resetTransform();
-		Image newImage2 = new Image("/resources/images/cards/5.png");		
+		Image newImage2 = new Image("resources/images/cards/5.png");		
 		Rectangle rect2 = new Rectangle(300, 300, 80, 120);
 		g.texture(rect2, newImage2, 1, 1, true);
 		
