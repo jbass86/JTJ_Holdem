@@ -2,7 +2,6 @@ package jtj_holdem.game.graphics2d.test;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import jtj_holdem.game.data.Card;
 import jtj_holdem.game.enums.ECardNumber;
 import jtj_holdem.game.enums.ECardSuit;
 import jtj_holdem.game.interfaces.ICard;

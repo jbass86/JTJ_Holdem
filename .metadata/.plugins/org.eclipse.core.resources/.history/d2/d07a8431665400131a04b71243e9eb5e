@@ -2,11 +2,6 @@ package jtj_holdem.game.graphics2d.test;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import jtj_holdem.game.data.Card;
-import jtj_holdem.game.enums.ECardNumber;
-import jtj_holdem.game.enums.ECardSuit;
-import jtj_holdem.game.interfaces.ICard;
-
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
@@ -28,7 +23,7 @@ public class SlickTest extends BasicGame
 	@Override
 	public void init(GameContainer gc) throws SlickException {
 		
-		ICard card = new Card(ECardNumber.ACE, ECardSuit.SPADES);
+
 	}
 
 	@Override
@@ -37,24 +32,24 @@ public class SlickTest extends BasicGame
 	@Override
 	public void render(GameContainer gc, Graphics g) throws SlickException
 	{
-		Rectangle background = new Rectangle(0, 0, gc.getWidth(), gc.getHeight());
-		Image bgImage = new Image("res/images/backgrounds/red_poker_bg.jpg");
-		g.texture(background, bgImage, 1, 1, true);
+//		Rectangle background = new Rectangle(0, 0, gc.getWidth(), gc.getHeight());
+//		Image bgImage = new Image("res/images/backgrounds/red_poker_bg.jpg");
+//		g.texture(background, bgImage, 1, 1, true);
 		
 		g.drawString("Howdy!", 10, 200);
 		
-		Image newImage = new Image("res/images/cards/1.png");
-		g.rotate(240, 260, angle);
-		Rectangle rect = new Rectangle(200, 200, 80, 120);
-		g.texture(rect, newImage, 1, 1, true);
-		g.flush();
-		
-		g.resetTransform();
-		Image newImage2 = new Image("res/images/cards/5.png");		
-		Rectangle rect2 = new Rectangle(300, 300, 80, 120);
-		g.texture(rect2, newImage2, 1, 1, true);
-		
-		angle += .01;
+//		Image newImage = new Image("res/images/cards/1.png");
+//		g.rotate(240, 260, angle);
+//		Rectangle rect = new Rectangle(200, 200, 80, 120);
+//		g.texture(rect, newImage, 1, 1, true);
+//		g.flush();
+//		
+//		g.resetTransform();
+//		Image newImage2 = new Image("res/images/cards/5.png");		
+//		Rectangle rect2 = new Rectangle(300, 300, 80, 120);
+//		g.texture(rect2, newImage2, 1, 1, true);
+//		
+//		angle += .01;
 	}
 
 	@Override

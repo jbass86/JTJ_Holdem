@@ -2,11 +2,6 @@ package jtj_holdem.game.graphics2d.test;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import jtj_holdem.game.data.Card;
-import jtj_holdem.game.enums.ECardNumber;
-import jtj_holdem.game.enums.ECardSuit;
-import jtj_holdem.game.interfaces.ICard;
-
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
@@ -28,7 +23,7 @@ public class SlickTest extends BasicGame
 	@Override
 	public void init(GameContainer gc) throws SlickException {
 		
-		ICard card = new Card(ECardNumber.ACE, ECardSuit.SPADES);
+
 	}
 
 	@Override
