@@ -1,7 +1,5 @@
 package jtj_holdem.game.graphics2d.test;
 import java.awt.Point;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -24,8 +22,6 @@ public class SlickTest extends BasicGame
 {
 	
 	private float angle = 0f;
-	
-	private List<drawCard> drawCardList = new ArrayList<drawCard>();
 	
 	private CardDeck testDeck = new CardDeck();
 	private ICard mDragCard;
@@ -75,11 +71,6 @@ public class SlickTest extends BasicGame
 			}
 		}
 		
-		for (drawCard drawcard : drawCardList){
-			Rectangle drawRect = new Rectangle(drawcard.cardPoint.x - 40, drawcard.cardPoint.y - 60, 80, 120);
-			g.texture(drawRect, drawcard.cardImage, 1, 1, true);
-		}
-		
 		angle += .01;
 	}
 
@@ -95,9 +86,6 @@ public class SlickTest extends BasicGame
 	}
 	
 	public void mouseReleased(int button, int x, int y) {
-		if (mDragCard != null){
-			drawCardList.add(new drawCard(CardImageUtil.getImageForCard(mDragCard), mDragPoint));
-		}
 		mDragCard = null;
 	}
 	
@@ -112,16 +100,4 @@ public class SlickTest extends BasicGame
 			Logger.getLogger(SlickTest.class.getName()).log(Level.SEVERE, null, ex);
 		}
 	}
-	
-	private class drawCard{
-		
-		public Image cardImage;
-		public Point cardPoint;
-		
-		public drawCard(Image pImage, Point pPoint){
-			cardImage = pImage;
-			cardPoint = pPoint;
-		}
-	}
-	
 }

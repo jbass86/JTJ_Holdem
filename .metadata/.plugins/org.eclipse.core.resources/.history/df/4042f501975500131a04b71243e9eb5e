@@ -75,11 +75,6 @@ public class SlickTest extends BasicGame
 			}
 		}
 		
-		for (drawCard drawcard : drawCardList){
-			Rectangle drawRect = new Rectangle(drawcard.cardPoint.x - 40, drawcard.cardPoint.y - 60, 80, 120);
-			g.texture(drawRect, drawcard.cardImage, 1, 1, true);
-		}
-		
 		angle += .01;
 	}
 
