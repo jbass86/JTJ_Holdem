@@ -1,10 +1,13 @@
 package jtj_holdem.game.graphics2d.test;
+import java.awt.Point;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import jtj_holdem.game.data.Card;
+import jtj_holdem.game.data_structures.CardDeck;
 import jtj_holdem.game.enums.ECardNumber;
 import jtj_holdem.game.enums.ECardSuit;
+import jtj_holdem.game.graphics2d.image.util.CardImageUtil;
 import jtj_holdem.game.interfaces.ICard;
 
 import org.newdawn.slick.AppGameContainer;
@@ -20,8 +23,13 @@ public class SlickTest extends BasicGame
 	
 	private float angle = 0f;
 	
+	private CardDeck testDeck = new CardDeck();
+	private ICard mDragCard;
+	private Point mDragPoint;
+	
 	public SlickTest(String gamename){
 		super(gamename);
+		testDeck.populateDeck(false);
 	}
 	
 	@Override
@@ -37,28 +45,48 @@ public class SlickTest extends BasicGame
 	public void render(GameContainer gc, Graphics g) throws SlickException
 	{
 		Rectangle background = new Rectangle(0, 0, gc.getWidth(), gc.getHeight());
-		Image bgImage = new Image("/resources/images/backgrounds/red_poker_bg.jpg");
+		Image bgImage = new Image("jtj_holdem/game/graphics2d/data/images/backgrounds/red_poker_bg.jpg");
 		g.texture(background, bgImage, 1, 1, true);
 		
 		g.drawString("Howdy!", 10, 200);
 		
-		Image newImage = new Image("/resources/images/cards/1.png");
+		ICard card = new Card(ECardNumber.ACE, ECardSuit.SPADES);
+		Image newImage = CardImageUtil.getImageForCard(card);
 		g.rotate(240, 260, angle);
 		Rectangle rect = new Rectangle(200, 200, 80, 120);
 		g.texture(rect, newImage, 1, 1, true);
 		g.flush();
 		
 		g.resetTransform();
-		Image newImage2 = new Image("/resources/images/cards/5.png");		
+		card = new Card(ECardNumber.FIVE, ECardSuit.HEARTS);
+		Image newImage2 = CardImageUtil.getImageForCard(card);
 		Rectangle rect2 = new Rectangle(300, 300, 80, 120);
 		g.texture(rect2, newImage2, 1, 1, true);
+		
+		if (mDragCard != null && mDragPoint != null){
+			Image draggingCard = CardImageUtil.getImageForCard(mDragCard);
+			if (draggingCard != null){
+				Rectangle dragCardRect = new Rectangle(mDragPoint.x - 40, mDragPoint.y - 60, 80, 120);
+				g.texture(dragCardRect, draggingCard, 1, 1, true);
+			}
+		}
 		
 		angle += .01;
 	}
 
 	@Override
 	public void mouseDragged(int oldx, int oldy, int newx, int newy) {
-		System.out.println("The mouse was dragged " + newx +  " " + newy);
+		if (mDragCard != null){
+			mDragPoint = new Point(newx, newy);
+		}
+	}
+	
+	public void mousePressed(int button, int x, int y) {
+		mDragCard = testDeck.dealCard();
+	}
+	
+	public void mouseReleased(int button, int x, int y) {
+		mDragCard = null;
 	}
 	
 	public static void main(String[] args){

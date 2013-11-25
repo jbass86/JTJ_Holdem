@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;jtj_holdem.game.graphics2d.util&apos; to &apos;jtj_holdem.game.graphics2d.image.util&apos;&#x0D;&#x0A;- Original project: &apos;poker.front_end.2d&apos;&#x0D;&#x0A;- Original element: &apos;poker.front_end.2d/src/jtj_holdem.game.graphics2d.util&apos;&#x0D;&#x0A;- Renamed element: &apos;poker.front_end.2d/src/jtj_holdem.game.graphics2d.image.util&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;jtj_holdem.game.graphics2d.util&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;jtj_holdem.game.graphics2d.util" name="jtj_holdem.game.graphics2d.image.util" qualified="false" references="true" stamp="1385343368473" textual="false" version="1.0"/>
+</session>
