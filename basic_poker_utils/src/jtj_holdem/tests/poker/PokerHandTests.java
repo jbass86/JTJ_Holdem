@@ -14,6 +14,12 @@ import jtj_holdem.game.utility.PokerHandUtility;
 import org.junit.Assert;
 import org.junit.Test;
 
+/**
+ * Test all the different poker hand possibilites and all different combination to make sure that
+ * my utilites work...
+ * @author Josh
+ *
+ */
 public class PokerHandTests {
 
 	@Test
