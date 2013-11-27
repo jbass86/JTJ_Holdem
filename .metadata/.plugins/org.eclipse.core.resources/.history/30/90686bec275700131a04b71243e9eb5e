@@ -1,0 +1,37 @@
+package jtj_holdem.tests.poker;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import jtj_holdem.game.data.Card;
+import jtj_holdem.game.data_structures.PokerHand;
+import jtj_holdem.game.enums.ECardNumber;
+import jtj_holdem.game.enums.ECardSuit;
+import jtj_holdem.game.enums.EPokerHand;
+import jtj_holdem.game.interfaces.ICard;
+import jtj_holdem.game.utility.PokerHandUtility;
+import junit.framework.Assert;
+
+import org.junit.Test;
+
+public class PokerHandTests {
+
+	@Test
+	public void testHighCard1(){
+		
+		List<ICard> initialCards = new ArrayList<ICard>();
+		initialCards.add(new Card(ECardNumber.EIGHT, ECardSuit.HEARTS));
+		initialCards.add(new Card(ECardNumber.TWO, ECardSuit.HEARTS));
+		initialCards.add(new Card(ECardNumber.THREE, ECardSuit.HEARTS));
+		initialCards.add(new Card(ECardNumber.JACK, ECardSuit.HEARTS));
+		initialCards.add(new Card(ECardNumber.SIX, ECardSuit.HEARTS));
+		initialCards.add(new Card(ECardNumber.NINE, ECardSuit.HEARTS));
+		initialCards.add(new Card(ECardNumber.TEN, ECardSuit.HEARTS));
+		
+		PokerHand hand = PokerHandUtility.determineBestHand(initialCards);
+		
+		Assert.assertEquals(hand.getHand(), EPokerHand.HIGH_CARD);
+		
+	}
+	
+}

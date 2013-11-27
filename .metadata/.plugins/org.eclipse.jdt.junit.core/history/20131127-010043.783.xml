@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="PokerHandTests" project="basic_poker_utils" tests="6" started="6" failures="0" errors="0" ignored="0">
+  <testsuite name="jtj_holdem.tests.poker.PokerHandTests" time="3.141">
+    <testcase name="testTwoPair1" classname="jtj_holdem.tests.poker.PokerHandTests" time="3.127"/>
+    <testcase name="testOnePair1" classname="jtj_holdem.tests.poker.PokerHandTests" time="0.002"/>
+    <testcase name="testOnePair2" classname="jtj_holdem.tests.poker.PokerHandTests" time="0.002"/>
+    <testcase name="testOnePair3" classname="jtj_holdem.tests.poker.PokerHandTests" time="0.003"/>
+    <testcase name="testHighCard1" classname="jtj_holdem.tests.poker.PokerHandTests" time="0.003"/>
+    <testcase name="testHighCard2" classname="jtj_holdem.tests.poker.PokerHandTests" time="0.004"/>
+  </testsuite>
+</testrun>

@@ -1,0 +1,143 @@
+package jtj_holdem.tests.poker;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import jtj_holdem.game.data.Card;
+import jtj_holdem.game.data_structures.PokerHand;
+import jtj_holdem.game.enums.ECardNumber;
+import jtj_holdem.game.enums.ECardSuit;
+import jtj_holdem.game.enums.EPokerHand;
+import jtj_holdem.game.interfaces.ICard;
+import jtj_holdem.game.utility.PokerHandUtility;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+public class PokerHandTests {
+
+	@Test
+	public void testHighCard1(){
+		
+		List<ICard> initialCards = new ArrayList<ICard>();
+		initialCards.add(new Card(ECardNumber.EIGHT, ECardSuit.SPADES));
+		initialCards.add(new Card(ECardNumber.TWO, ECardSuit.CLUBS));
+		initialCards.add(new Card(ECardNumber.THREE, ECardSuit.HEARTS));
+		initialCards.add(new Card(ECardNumber.JACK, ECardSuit.SPADES));
+		initialCards.add(new Card(ECardNumber.SIX, ECardSuit.HEARTS));
+		initialCards.add(new Card(ECardNumber.NINE, ECardSuit.DIAMONDS));
+		initialCards.add(new Card(ECardNumber.TEN, ECardSuit.HEARTS));
+		
+		PokerHand hand = PokerHandUtility.determineBestHand(initialCards);
+		
+		Assert.assertEquals(hand.getHand(), EPokerHand.HIGH_CARD);	
+		Assert.assertEquals(hand.getCards().get(0), new Card(ECardNumber.JACK, ECardSuit.SPADES));	
+	}
+	
+	@Test
+	public void testHighCard2(){
+		
+		List<ICard> initialCards = new ArrayList<ICard>();
+		initialCards.add(new Card(ECardNumber.ACE, ECardSuit.DIAMONDS));
+		initialCards.add(new Card(ECardNumber.TWO, ECardSuit.SPADES));
+		initialCards.add(new Card(ECardNumber.THREE, ECardSuit.HEARTS));
+		initialCards.add(new Card(ECardNumber.FOUR, ECardSuit.HEARTS));
+		initialCards.add(new Card(ECardNumber.KING, ECardSuit.CLUBS));
+		initialCards.add(new Card(ECardNumber.NINE, ECardSuit.HEARTS));
+		initialCards.add(new Card(ECardNumber.TEN, ECardSuit.HEARTS));
+		
+		PokerHand hand = PokerHandUtility.determineBestHand(initialCards);
+		
+		Assert.assertEquals(hand.getHand(), EPokerHand.HIGH_CARD);	
+		Assert.assertEquals(hand.getCards().get(0), new Card(ECardNumber.ACE, ECardSuit.DIAMONDS));
+	}
+	
+	@Test
+	public void testOnePair1(){
+		
+		List<ICard> initialCards = new ArrayList<ICard>();
+		initialCards.add(new Card(ECardNumber.ACE, ECardSuit.DIAMONDS));
+		initialCards.add(new Card(ECardNumber.TWO, ECardSuit.SPADES));
+		initialCards.add(new Card(ECardNumber.THREE, ECardSuit.HEARTS));
+		initialCards.add(new Card(ECardNumber.FOUR, ECardSuit.HEARTS));
+		initialCards.add(new Card(ECardNumber.ACE, ECardSuit.CLUBS));
+		initialCards.add(new Card(ECardNumber.NINE, ECardSuit.HEARTS));
+		initialCards.add(new Card(ECardNumber.TEN, ECardSuit.HEARTS));
+		List<ICard> handCards = new ArrayList<ICard>();
+		handCards.add(new Card(ECardNumber.ACE, ECardSuit.DIAMONDS));
+		handCards.add(new Card(ECardNumber.ACE, ECardSuit.CLUBS));
+		
+		PokerHand hand = PokerHandUtility.determineBestHand(initialCards);
+		
+		Assert.assertEquals(hand.getHand(), EPokerHand.ONE_PAIR);	
+		Assert.assertEquals(hand.getCards(), handCards);
+	}
+	
+	@Test
+	public void testOnePair2(){
+		
+		List<ICard> initialCards = new ArrayList<ICard>();
+		initialCards.add(new Card(ECardNumber.ACE, ECardSuit.DIAMONDS));
+		initialCards.add(new Card(ECardNumber.TWO, ECardSuit.SPADES));
+		initialCards.add(new Card(ECardNumber.THREE, ECardSuit.HEARTS));
+		initialCards.add(new Card(ECardNumber.FOUR, ECardSuit.HEARTS));
+		initialCards.add(new Card(ECardNumber.TWO, ECardSuit.CLUBS));
+		initialCards.add(new Card(ECardNumber.NINE, ECardSuit.HEARTS));
+		initialCards.add(new Card(ECardNumber.TEN, ECardSuit.HEARTS));
+		List<ICard> handCards = new ArrayList<ICard>();
+		handCards.add(new Card(ECardNumber.TWO, ECardSuit.SPADES));
+		handCards.add(new Card(ECardNumber.TWO, ECardSuit.CLUBS));
+		
+		PokerHand hand = PokerHandUtility.determineBestHand(initialCards);
+		
+		Assert.assertEquals(hand.getHand(), EPokerHand.ONE_PAIR);	
+		Assert.assertEquals(hand.getCards(), handCards);
+	}
+	
+	@Test
+	public void testOnePair3(){
+		
+		List<ICard> initialCards = new ArrayList<ICard>();
+		initialCards.add(new Card(ECardNumber.ACE, ECardSuit.DIAMONDS));
+		initialCards.add(new Card(ECardNumber.TWO, ECardSuit.SPADES));
+		initialCards.add(new Card(ECardNumber.THREE, ECardSuit.HEARTS));
+		initialCards.add(new Card(ECardNumber.TEN, ECardSuit.SPADES));
+		initialCards.add(new Card(ECardNumber.SIX, ECardSuit.CLUBS));
+		initialCards.add(new Card(ECardNumber.NINE, ECardSuit.HEARTS));
+		initialCards.add(new Card(ECardNumber.TEN, ECardSuit.HEARTS));
+		List<ICard> handCards = new ArrayList<ICard>();
+		handCards.add(new Card(ECardNumber.TEN, ECardSuit.SPADES));
+		handCards.add(new Card(ECardNumber.TEN, ECardSuit.HEARTS));
+		
+		PokerHand hand = PokerHandUtility.determineBestHand(initialCards);
+		
+		Assert.assertEquals(hand.getHand(), EPokerHand.ONE_PAIR);	
+		Assert.assertEquals(hand.getCards(), handCards);
+	}
+	
+	@Test
+	public void testTwoPair1(){
+		
+		List<ICard> initialCards = new ArrayList<ICard>();
+		initialCards.add(new Card(ECardNumber.ACE, ECardSuit.DIAMONDS));
+		initialCards.add(new Card(ECardNumber.TWO, ECardSuit.SPADES));
+		initialCards.add(new Card(ECardNumber.TEN, ECardSuit.HEARTS));
+		initialCards.add(new Card(ECardNumber.TEN, ECardSuit.SPADES));
+		initialCards.add(new Card(ECardNumber.SIX, ECardSuit.CLUBS));
+		initialCards.add(new Card(ECardNumber.NINE, ECardSuit.HEARTS));
+		initialCards.add(new Card(ECardNumber.ACE, ECardSuit.HEARTS));
+		List<ICard> handCards = new ArrayList<ICard>();
+		handCards.add(new Card(ECardNumber.TEN, ECardSuit.SPADES));
+		handCards.add(new Card(ECardNumber.TEN, ECardSuit.HEARTS));
+		handCards.add(new Card(ECardNumber.ACE, ECardSuit.DIAMONDS));
+		handCards.add(new Card(ECardNumber.ACE, ECardSuit.HEARTS));
+		
+		PokerHand hand = PokerHandUtility.determineBestHand(initialCards);
+		
+		Assert.assertEquals(hand.getHand(), EPokerHand.TWO_PAIR);	
+		for (ICard card : hand.getCards()){
+			Assert.assertEquals(handCards.contains(card), true);
+		}
+	}
+	
+}
