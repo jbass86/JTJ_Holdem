@@ -1,5 +1,0 @@
-package jtj_holdem.game.enums;
-
-public enum EPokerHand {
-
-}
