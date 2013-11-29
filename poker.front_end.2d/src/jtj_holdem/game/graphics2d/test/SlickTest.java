@@ -34,6 +34,7 @@ public class SlickTest extends BasicGame
 	public SlickTest(String gamename){
 		super(gamename);
 		testDeck.populateDeck(false);
+		testDeck.shuffleDeck();
 	}
 	
 	@Override
