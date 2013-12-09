@@ -179,10 +179,11 @@ public class PokerHandUtility {
 				List <ICard> kickers = new ArrayList<ICard>(pHand);
 				kickers.removeAll(numbers.get(number));
 				Collections.sort(kickers);
-				while (kickers.size() > 3){
+				while (kickers.size() > 2){
 					kickers.remove(0);
 				}
 				hand = new PokerHand(EPokerHand.THREE_OF_A_KIND, numbers.get(number), kickers);
+				break;
 			}
 		}
 		return hand;

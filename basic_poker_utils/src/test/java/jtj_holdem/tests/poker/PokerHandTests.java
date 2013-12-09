@@ -256,7 +256,34 @@ public class PokerHandTests {
 		verifyCardList(hand.getKickers(), kickers);
 	}
 
+	@Test
+	public void test3OfaKind1(){
 
+		List<ICard> initialCards = new ArrayList<ICard>();
+		initialCards.add(new Card(ECardNumber.KING, ECardSuit.CLUBS));
+		initialCards.add(new Card(ECardNumber.KING, ECardSuit.SPADES));
+		initialCards.add(new Card(ECardNumber.FOUR, ECardSuit.HEARTS));
+		initialCards.add(new Card(ECardNumber.KING, ECardSuit.DIAMONDS));
+		initialCards.add(new Card(ECardNumber.SEVEN, ECardSuit.DIAMONDS));
+		initialCards.add(new Card(ECardNumber.THREE, ECardSuit.CLUBS));
+		initialCards.add(new Card(ECardNumber.ACE, ECardSuit.SPADES));
+		List<ICard> handCards = new ArrayList<ICard>();
+		handCards.add(new Card(ECardNumber.KING, ECardSuit.CLUBS));
+		handCards.add(new Card(ECardNumber.KING, ECardSuit.SPADES));
+		handCards.add(new Card(ECardNumber.KING, ECardSuit.DIAMONDS));
+		List<ICard> kickers = new ArrayList<ICard>();
+		kickers.add(new Card(ECardNumber.ACE, ECardSuit.SPADES));
+		kickers.add(new Card(ECardNumber.SEVEN, ECardSuit.DIAMONDS));
+
+		PokerHand hand = PokerHandUtility.determineBestHand(initialCards);
+
+		Assert.assertEquals(hand.getHand(), EPokerHand.THREE_OF_A_KIND);	
+		verifyCardList(hand.getCards(), handCards);
+		verifyCardList(hand.getKickers(), kickers);
+	}
+
+	
+	
 	private static void verifyCardList(final List<ICard> pList1, final List<ICard> pList2){
 		for (ICard card : pList1){
 			Assert.assertEquals(pList2.contains(card), true);
