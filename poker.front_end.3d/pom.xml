@@ -23,6 +23,12 @@
 	<dependencies>
 
 		<dependency>
+			<groupId>basic_poker_utils</groupId>
+			<artifactId>basic_poker_utils</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
 			<!--Contains just the jme3test demo classes, with main methods -->
 			<groupId>com.jme3</groupId>
 			<artifactId>jmonkeyengine3</artifactId>
